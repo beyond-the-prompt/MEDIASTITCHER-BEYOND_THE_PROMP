@@ -25,12 +25,43 @@
       }
     }
   </script>
+
+  <style>
+    /* Hover effect for menu cards */
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Add-to-Cart popup styling */
+    .cart-popup {
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: black;
+      color: white;
+      font-weight: bold;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 50;
+    }
+    .cart-popup.show {
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body class="bg-dark text-white min-h-screen relative">
 
-  <!-- Background handled by your component -->
-  <background-video></background-video>
+  <!-- Background Video -->
+  <background-video src="media/tonya-girl.mp4"></background-video>
+
   <custom-navbar></custom-navbar>
 
   <main class="container mx-auto px-4 py-10">
@@ -43,7 +74,7 @@
       </p>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover:shadow-lg transition">
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary menu-card">
           <img src="media/flower.jpg" alt="Top Shelf Flower" class="w-full h-48 object-cover" loading="lazy" />
           <div class="p-4">
             <h3 class="text-lg font-bold">Top Shelf Flower</h3>
@@ -51,7 +82,7 @@
           </div>
         </div>
 
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover:shadow-lg transition">
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary menu-card">
           <img src="media/concentrates.jpg" alt="Concentrates" class="w-full h-48 object-cover" loading="lazy" />
           <div class="p-4">
             <h3 class="text-lg font-bold">Concentrates</h3>
@@ -59,7 +90,7 @@
           </div>
         </div>
 
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover:shadow-lg transition">
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary menu-card">
           <img src="media/edibles.jpg" alt="Edibles" class="w-full h-48 object-cover" loading="lazy" />
           <div class="p-4">
             <h3 class="text-lg font-bold">Edibles</h3>
@@ -71,100 +102,80 @@
 
     <!-- Menu -->
     <section class="mb-16">
-      <h2 class="text-4xl font-bold text-center text-neonGreen mb-4">Cannabis Menu</h2>
-      <p class="text-center text-gray-400 mb-10">From CBD to WTF</p>
+      <h2 class="text-4xl font-bold text-center text-neonGreen mb-4">
+        Cannabis Menu
+      </h2>
+      <p class="text-center text-gray-400 mb-10">
+        From CBD to WTF
+      </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Flower -->
-        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen menu-card">
           <h3 class="text-2xl font-bold text-neonGreen mb-4">Flower</h3>
           <div class="space-y-4">
-            <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition relative">
               <div>
                 <h4 class="font-bold">OG Kush</h4>
                 <p class="text-sm text-gray-400">Indica dominant</p>
               </div>
-              <div class="flex flex-col items-end gap-2">
-                <span class="text-neonGreen font-bold">$60</span>
-                <button class="add-to-cart-btn bg-neonGreen hover:bg-green-500 text-black font-bold py-1 px-3 rounded-full text-sm">
-                  Add to Cart
-                </button>
-              </div>
+              <span class="text-neonGreen font-bold">$60</span>
+              <span class="cart-popup">Added to Cart</span>
             </div>
-            <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition relative">
               <div>
                 <h4 class="font-bold">Sour Diesel</h4>
                 <p class="text-sm text-gray-400">Sativa dominant</p>
               </div>
-              <div class="flex flex-col items-end gap-2">
-                <span class="text-neonGreen font-bold">$65</span>
-                <button class="add-to-cart-btn bg-neonGreen hover:bg-green-500 text-black font-bold py-1 px-3 rounded-full text-sm">
-                  Add to Cart
-                </button>
-              </div>
+              <span class="text-neonGreen font-bold">$65</span>
+              <span class="cart-popup">Added to Cart</span>
             </div>
           </div>
         </div>
 
         <!-- Concentrates -->
-        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen menu-card">
           <h3 class="text-2xl font-bold text-neonGreen mb-4">Concentrates</h3>
           <div class="space-y-4">
-            <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition relative">
               <div>
                 <h4 class="font-bold">Live Resin</h4>
                 <p class="text-sm text-gray-400">Full spectrum</p>
               </div>
-              <div class="flex flex-col items-end gap-2">
-                <span class="text-neonGreen font-bold">$80</span>
-                <button class="add-to-cart-btn bg-neonGreen hover:bg-green-500 text-black font-bold py-1 px-3 rounded-full text-sm">
-                  Add to Cart
-                </button>
-              </div>
+              <span class="text-neonGreen font-bold">$80</span>
+              <span class="cart-popup">Added to Cart</span>
             </div>
-            <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition relative">
               <div>
                 <h4 class="font-bold">Rosin</h4>
                 <p class="text-sm text-gray-400">Solventless</p>
               </div>
-              <div class="flex flex-col items-end gap-2">
-                <span class="text-neonGreen font-bold">$90</span>
-                <button class="add-to-cart-btn bg-neonGreen hover:bg-green-500 text-black font-bold py-1 px-3 rounded-full text-sm">
-                  Add to Cart
-                </button>
-              </div>
+              <span class="text-neonGreen font-bold">$90</span>
+              <span class="cart-popup">Added to Cart</span>
             </div>
           </div>
         </div>
 
         <!-- Edibles -->
-        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen menu-card">
           <h3 class="text-2xl font-bold text-neonGreen mb-4">Edibles</h3>
           <div class="space-y-4">
-            <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition relative">
               <div>
                 <h4 class="font-bold">Gummies</h4>
                 <p class="text-sm text-gray-400">100mg THC</p>
               </div>
-              <div class="flex flex-col items-end gap-2">
-                <span class="text-neonGreen font-bold">$25</span>
-                <button class="add-to-cart-btn bg-neonGreen hover:bg-green-500 text-black font-bold py-1 px-3 rounded-full text-sm">
-                  Add to Cart
-                </button>
-              </div>
+              <span class="text-neonGreen font-bold">$25</span>
+              <span class="cart-popup">Added to Cart</span>
             </div>
-            <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between items-center hover:bg-gray-700 transition">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition relative">
               <div>
                 <h4 class="font-bold">Chocolate Bar</h4>
                 <p class="text-sm text-gray-400">200mg THC</p>
               </div>
-              <div class="flex flex-col items-end gap-2">
-                <span class="text-neonGreen font-bold">$35</span>
-                <button class="add-to-cart-btn bg-neonGreen hover:bg-green-500 text-black font-bold py-1 px-3 rounded-full text-sm">
-                  Add to Cart
-                </button>
-              </div>
+              <span class="text-neonGreen font-bold">$35</span>
+              <span class="cart-popup">Added to Cart</span>
             </div>
           </div>
         </div>
@@ -173,24 +184,36 @@
     </section>
 
     <!-- Special Offers -->
-    <section class="bg-gray-900 rounded-xl p-8 border border-green-500 mb-12">
+    <section class="bg-gray-900 rounded-xl p-8 border border-green-500 mb-12 menu-card">
       <h2 class="text-3xl font-bold text-neonGreen mb-6 text-center">Special Offers</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl">
+        <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl relative">
           <h3 class="text-xl font-bold mb-4">First Time Buyer</h3>
           <p class="mb-4 text-gray-300">Get 20% off your first order with code: NEWSTONER</p>
           <button class="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded-full">
             Apply Code
           </button>
+          <span class="cart-popup">Added to Cart</span>
         </div>
-        <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl">
+        <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl relative">
           <h3 class="text-xl font-bold mb-4">VIP Members</h3>
           <p class="mb-4 text-gray-300">Gold Hoe members get free delivery on all cannabis orders</p>
           <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">
             Upgrade Now
           </button>
+          <span class="cart-popup">Added to Cart</span>
         </div>
       </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center">
+      <h2 class="text-3xl font-bold text-neonPink mb-4">
+        Ready to get lifted?
+      </h2>
+      <p class="text-gray-400 mb-6">
+        Discreet delivery. Questionable life choices.
+      </p>
     </section>
 
   </main>
@@ -201,33 +224,21 @@
   <script src="components/footer.js"></script>
   <script src="components/background-video.js"></script>
   <script src="script.js"></script>
+
   <script>
     feather.replace();
 
-    // Add to Cart popup for all menu buttons
-    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const popup = document.createElement('span');
-        popup.textContent = 'Added to Cart';
-        popup.className = 'absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full bg-black text-white text-sm font-bold px-3 py-1 rounded opacity-0 animate-fade-in';
-        btn.parentElement.appendChild(popup);
-
-        // Trigger fade-in/fade-out
-        setTimeout(() => popup.classList.add('opacity-100'), 10);
-        setTimeout(() => {
-          popup.classList.remove('opacity-100');
-          setTimeout(() => popup.remove(), 300);
-        }, 1000);
+    // Add-to-Cart popup logic for all buttons
+    document.querySelectorAll('.menu-card button, .menu-card div[role="button"]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const popup = this.parentElement.querySelector('.cart-popup');
+        if (popup) {
+          popup.classList.add('show');
+          setTimeout(() => popup.classList.remove('show'), 1000);
+        }
       });
     });
   </script>
 
-  <style>
-    @keyframes fade-in {
-      0% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in { animation: fade-in 0.3s ease forwards; }
-  </style>
 </body>
 </html>
