@@ -27,7 +27,7 @@ transition: opacity 0.8s ease;
         }
 </style>
       <video autoplay loop muted>
-        <source src="mike-face.mp4" type="video/mp4">
+        <source src="tramplevid.mp4" type="video/mp4">
       </video>
     `;
   }
@@ -35,4 +35,5 @@ transition: opacity 0.8s ease;
 
 
 customElements.define('background-video', BackgroundVideo);
+
 
