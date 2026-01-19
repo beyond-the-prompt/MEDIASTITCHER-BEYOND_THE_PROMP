@@ -1,1 +1,8 @@
-.well-known/assetlinks.json
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.beyond_the_prompt.twa",
+        "sha256_cert_fingerprints": ["A7:C3:64:D3:FC:7B:B0:3B:D5:8C:4F:93:F7:10:FF:51:FF:A8:83:C3:47:DF:23:6B:28:1D:DE:BD:14:14:3B:51"]
+      }
+    }]
