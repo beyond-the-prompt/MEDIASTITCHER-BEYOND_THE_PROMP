@@ -42,5 +42,30 @@
       "sizes": "48x48",
       "type": "image/png"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Trample House Mobile"
+    },
+    {
+      "src": "screenshot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Trample House Desktop"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Login Now",
+      "short_name": "Login",
+      "description": "Jump straight to the login screen",
+      "url": "/login.html",
+      "icons": [{ "src": "android/android-launchericon-96-96.png", "sizes": "96x96" }]
+    }
   ]
 }
