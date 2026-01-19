@@ -1,8 +1,16 @@
 {
   "name": "TRAMPLE HOUSE",
   "short_name": "TRAMPLE",
+  "description": "A satirical simulation intended for mature audiences only.",
+  "id": "https://beyond-the-prompt.github.io/WHOREDASH-BEYOND-THE-PROMPT-TRAMPLE-HOUSE/",
   "start_url": "login.html",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "dir": "ltr",
+  "lang": "en",
   "icons": [
     {
       "src": "android/android-launchericon-512-512.jpg",
@@ -22,6 +30,16 @@
     {
       "src": "android/android-launchericon-96-96.png",
       "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "android/android-launchericon-72-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "android/android-launchericon-48-48.png",
+      "sizes": "48x48",
       "type": "image/png"
     }
   ]
